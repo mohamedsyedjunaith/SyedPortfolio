@@ -1,0 +1,331 @@
+/* =============================
+   Global and Root Variables
+============================= */
+:root {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --accent: #00f7ff;
+  --card-bg: #1e1e2f;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode Overrides */
+body.light-mode {
+  --bg-color: #f5f5f5;
+  --text-color: #1a1a1a;
+  --accent: #007bff;
+  --card-bg: #ffffff;
+}
+
+body.light-mode .navbar {
+  background-color: #ffffff;
+}
+
+body.light-mode .navbar .logo,
+body.light-mode .nav-links li a {
+  color: #1a1a1a;
+}
+
+/* =============================
+   Scroll Progress Bar
+============================= */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: var(--accent);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.2s ease-out;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* =============================
+   Toggle Switch Styling
+============================= */
+.theme-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 26px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent);
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* =============================
+   Typography and Sections
+============================= */
+h1, h2, h3, h4 {
+  margin-bottom: 0.5rem;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+  transition: background 0.4s ease;
+}
+
+section:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+section:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+section.active-section {
+  background: rgba(0, 247, 255, 0.05);
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  max-width: 1200px;
+}
+
+/* =============================
+   Navbar
+============================= */
+.navbar {
+  background-color: #111;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.navbar .logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--accent);
+}
+
+/* =============================
+   Hero Section
+============================= */
+.hero {
+  background: linear-gradient(to right, #141e30, #243b55);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: var(--text-color);
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+.btn-glow {
+  margin-top: 20px;
+  background: var(--accent);
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 15px var(--accent);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 30px var(--accent);
+}
+
+/* =============================
+   Projects & Cards
+============================= */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 247, 255, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 0 25px rgba(0, 247, 255, 0.6);
+}
+
+/* =============================
+   Skills Section
+============================= */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.skills-container div {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-container div:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.4);
+}
+
+/* =============================
+   Contact Section
+============================= */
+.socials p {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.socials i {
+  color: var(--accent);
+}
+
+/* =============================
+   Footer
+============================= */
+footer {
+  background: #111;
+  padding: 1rem;
+  text-align: center;
+  color: #888;
+  margin-top: 3rem;
+}
+
+/* =============================
+   Reusable Card
+============================= */
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid #2c2c2c;
+}
+
+.card:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+  border-color: var(--accent);
+}
+
+/* =============================
+   Responsive Styles
+============================= */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .theme-switch {
+    top: 10px;
+    right: 10px;
+    transform: scale(0.8);
+  }
+}
+p {
+  font-size: 16px;
+  line-height: 1.8; /* or 28.8px if you prefer exact pixel values */
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
